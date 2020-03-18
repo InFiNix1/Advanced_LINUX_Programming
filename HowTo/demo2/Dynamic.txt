@@ -1,0 +1,39 @@
+Step 1 - Define Fucntions eg. add.c sub.c
+
+Step 2 - Create object file which shall be **POSITION INDEPENDENT**
+
+e.g  ----    $ gcc -fPIC -c add.c
+
+Step 3 - Created The Shared Library and Link all the Objects to the Library 
+
+NOTE- Dynamic Library has .so as extension --- Shared Object(.so)
+
+eg. ------ $ gcc shared -o libbasic.so add.o sub.o
+
+Here lib<library_name> and add.o sub.o are functions names
+
+Step 4 - Create Header File for Fucntion Declaration to main file
+
+eg -- basic.h 
+
+Here <name>.h is name of the header file
+
+Step 5 -- Create actual Executable File from main() 
+
+eg -- demo.c  which has the block of tasks to complete
+
+Step 6 - Compile and create Object File for main()
+
+eg ---- $ gcc -c demo.c 
+
+Step 6 - Create Executable File from Object File of main() and Linking With Library
+
+eg ---- $ gcc -o demo demo.o libbasic.so
+
+Step 7 - Move the Library to /usr/lib with root privileges
+
+Step 8 - Reconfigure or Update Cache of Library 
+
+$ ldconfig
+
+
